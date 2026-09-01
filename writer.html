@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="YO-JO 장애인센터 선교편지 작성기">
+  <title>선교편지 작성기 · YO-JO</title>
+  <link rel="stylesheet" href="writer.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="wordmark" href="index.html"><span>밀</span><b>선교편지 작성기</b></a>
+    <div class="top-actions">
+      <span id="save-state" role="status">새 문서</span>
+      <button class="ghost" id="reset-btn" type="button">새로 쓰기</button>
+      <button class="primary" id="print-btn" type="button">인쇄 · PDF 저장</button>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <aside class="editor" aria-label="편지 작성 영역">
+      <div class="editor-heading">
+        <div><p>LETTER WORKSPACE</p><h1>편지 내용을 채워주세요</h1></div>
+        <button class="save-button" id="save-btn" type="button">임시저장</button>
+      </div>
+
+      <form id="letter-form">
+        <section class="panel">
+          <div class="panel-title"><span>01</span><div><h2>기본 정보</h2><p>호수와 발행 기간을 입력합니다.</p></div></div>
+          <div class="field-grid three">
+            <label>호수<input name="issue" type="number" value="72" min="1"></label>
+            <label>발행 연도<input name="year" type="number" value="2026" min="2000"></label>
+            <label>발행 기간<input name="period" value="9–10월" placeholder="9–10월"></label>
+          </div>
+          <label>인사말 제목<input name="greeting" value="싸바이디," placeholder="싸바이디,"></label>
+          <label>여는 글<textarea name="intro" rows="8" placeholder="지난 두 달 동안의 이야기와 감사 인사를 적어주세요."></textarea></label>
+        </section>
+
+        <section class="panel">
+          <div class="panel-title"><span>02</span><div><h2>소식과 이야기</h2><p>소식마다 제목, 본문, 사진을 넣을 수 있습니다.</p></div></div>
+          <div id="section-list"></div>
+          <button class="add-button" id="add-section" type="button"><span>＋</span> 소식 추가</button>
+        </section>
+
+        <section class="panel">
+          <div class="panel-title"><span>03</span><div><h2>재정 보고</h2><p>필요할 때만 작성하세요.</p></div></div>
+          <label>보고 제목<input name="financeTitle" value="건축 및 차량 보고" placeholder="건축 보고"></label>
+          <label>재정 내용<textarea name="finance" rows="7" placeholder="수입, 지출, 잔액과 감사 내용을 입력하세요."></textarea></label>
+        </section>
+
+        <section class="panel">
+          <div class="panel-title"><span>04</span><div><h2>연락처</h2><p>마지막 면에 들어갈 정보를 확인합니다.</p></div></div>
+          <label>연락처 및 후원 안내<textarea name="contact" rows="6" placeholder="주소, 전화, 온라인 채널, 후원 안내 등 편지에 공개할 정보만 입력하세요."></textarea></label>
+        </section>
+      </form>
+    </aside>
+
+    <section class="preview-area" aria-label="실시간 편지 미리보기">
+      <div class="preview-toolbar">
+        <div><span class="live-dot"></span> 실시간 미리보기</div>
+        <div class="zoom-controls"><button id="zoom-out" type="button" aria-label="축소">−</button><span id="zoom-label">75%</span><button id="zoom-in" type="button" aria-label="확대">＋</button></div>
+      </div>
+      <div class="paper-stage">
+        <article id="letter-preview" class="letter-paper"></article>
+      </div>
+    </section>
+  </main>
+
+  <template id="section-template">
+    <article class="section-editor">
+      <div class="section-head"><b class="section-number">소식</b><button class="remove-section" type="button" aria-label="소식 삭제">삭제</button></div>
+      <label>제목<input class="section-title" placeholder="소식 제목"></label>
+      <label>본문<textarea class="section-body" rows="7" placeholder="이야기를 자세히 적어주세요."></textarea></label>
+      <label class="image-picker"><input class="section-image" type="file" accept="image/*"><span>사진 선택</span><small>JPG, PNG · 미리보기와 인쇄에 포함됩니다</small></label>
+      <div class="image-status"></div>
+    </article>
+  </template>
+
+  <script src="writer.js"></script>
+</body>
+</html>
+
