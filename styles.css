@@ -29,6 +29,7 @@ a { color: inherit; }
 .brand small { display: block; margin-top: 3px; opacity: .7; font-size: 11px; }
 .nav-link { text-decoration: none; font-size: 13px; letter-spacing: .05em; }
 .nav-link span { margin-left: 14px; color: #d8d2a3; }
+.nav-actions { display: flex; align-items: center; gap: 30px; }
 .hero { position: relative; display: grid; grid-template-columns: 1.1fr .7fr; align-items: center; gap: 90px; min-height: 650px; padding-block: 56px; }
 .hero-copy { position: relative; z-index: 2; }
 .eyebrow { margin: 0 0 20px; color: var(--gold); font-size: 12px; font-weight: 700; letter-spacing: .2em; }
@@ -100,3 +101,4 @@ footer { padding: 54px 0; color: #e8e5da; background: #182019; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; }
 }
+
